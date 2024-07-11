@@ -39,6 +39,11 @@ jobs:
       #     name: release-apk
       #     path: build/app/outputs/flutter-apk/app-release.apk
       
+      - name: Compress Web Build
+        run: |
+          cd build
+          zip -r web-app.zip web
+
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
@@ -57,6 +62,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/web
+
+          #Path to a zip file, as 'build/web' directory need to compress first into
+          # a single file,in case of Web build.
+          asset_path: build/web-app.zip 
           asset_name: web-app.zip
           asset_content_type: application/zip
