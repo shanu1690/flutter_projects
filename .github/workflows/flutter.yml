@@ -15,7 +15,7 @@ on :
       inputs:
         release_name:
           default: 'v1.0.0'
-          description: This is a release for Clean Architecture version 1. In this, I have added State Mangement.using Provider and Cubit.Also, I have used CI/CD build, release and deployment demo.
+          description: 'This is a release for Clean Architecture version 1.0.0. Using Cubit and Provider for State mangement.' 
           required: true
 
         release_tag:
