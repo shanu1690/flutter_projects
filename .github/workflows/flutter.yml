@@ -1,11 +1,27 @@
 name : Clean Architecture CI/CD
 on : 
-    push : 
-        branches : 
-            - Clean_Architecture_With_Cubit
-    pull_request : 
-        branches : 
-            - Clean_Architecture_With_Cubit
+    
+    # Create Build and Release, only at the time of every Push and Pull Request, then uncomment below.
+    # push : 
+    #     branches : 
+    #         - Clean_Architecture_With_Cubit
+    # pull_request : 
+    #     branches : 
+    #         - Clean_Architecture_With_Cubit
+
+    #To Dispatch the build Manually, use 
+
+    workflow_dispatch: 
+      inputs:
+        release_name:
+          default: 'v1.0.0'
+          description: This is a release for Clean Architecture version 1. In this, I have added State Mangement.using Provider and Cubit.Also, I have used CI/CD build, release and deployment demo.
+          required: true
+
+        release_tag:
+          default: 'v1.0.0'
+          description: 'Clean Architecture'
+          required: true
 
 jobs:     
   build:
@@ -51,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v1.0.${{ github.run_number }} #Dynamic tagging
-          release_name: Release v1.0.0
+          release_name: Release v1.0.${{ github.run_number }}
           body: "Release notes for this version"
           draft: false
           prerelease: false
