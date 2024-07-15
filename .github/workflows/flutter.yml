@@ -43,17 +43,8 @@ jobs:
       # - name: Run tests
       #   run: flutter test
 
-      # - name: Build APK
-      #   run: flutter build apk --release
-
       - name: Build Web App
         run: flutter build web --release
-
-      # - name: Upload APK
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: release-apk
-      #     path: build/app/outputs/flutter-apk/app-release.apk
       
       - name: Compress Web Build
         run: |
