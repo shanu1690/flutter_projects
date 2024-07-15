@@ -1,0 +1,43 @@
+name: Docker Image CI
+
+on:
+
+  workflow_dispatch: 
+      inputs:
+        release_name:
+          default: 'v1.0.0'
+          description: 'This is a release for Clean Architecture version 1.0.0. Using Cubit and Provider for State mangement.' 
+          required: true
+
+        release_tag:
+          default: 'v1.0.0'
+          description: 'Clean Architecture'
+          required: true
+          
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository 
+      uses: actions/checkout@v2
+    
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.22.2'
+
+    - name: Install dependencies
+      run: flutter pub get    
+
+    - name: Build web app
+      run: flutter build web --release
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/web
