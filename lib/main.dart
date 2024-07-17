@@ -1,9 +1,6 @@
-import 'package:clean_arch_with_cubit/presentation/cubit/cart_cubit.dart';
 import 'package:clean_arch_with_cubit/presentation/provider/cart_provider.dart';
 import 'package:clean_arch_with_cubit/presentation/screens/cart_screen.dart';
-import 'package:clean_arch_with_cubit/presentation/screens/cart_screen_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 void main() {

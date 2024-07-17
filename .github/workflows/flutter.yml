@@ -1,0 +1,77 @@
+name : Clean Architecture CI/CD
+on : 
+    
+    # Create Build and Release, only at the time of every Push and Pull Request, then uncomment below.
+    # push : 
+    #     branches : 
+    #         - Clean_Architecture_With_Cubit
+    # pull_request : 
+    #     branches : 
+    #         - Clean_Architecture_With_Cubit
+
+    #To Dispatch the build Manually, use 
+
+    workflow_dispatch: 
+      inputs:
+        release_name:
+          default: 'v1.0.0'
+          description: 'This is a release for Clean Architecture version 1.0.0. Using Cubit and Provider for State mangement.' 
+          required: true
+
+        release_tag:
+          default: 'v1.0.0'
+          description: 'Clean Architecture'
+          required: true
+
+jobs:     
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.2'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # - name: Run tests
+      #   run: flutter test
+
+      - name: Build Web App
+        run: flutter build web --release
+      
+      - name: Compress Web Build
+        run: |
+          cd build
+          zip -r web-app.zip web
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.0.${{ github.run_number }} #Dynamic tagging
+          release_name: Release v1.0.${{ github.run_number }}
+          body: "Release notes for this version"
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+
+          #Path to a zip file, as 'build/web' directory need to compress first into
+          # a single file,in case of Web build.
+          asset_path: build/web-app.zip 
+          asset_name: web-app.zip
+          asset_content_type: application/zip
