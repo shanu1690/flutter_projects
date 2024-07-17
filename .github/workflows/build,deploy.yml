@@ -20,6 +20,7 @@ jobs:
   build:
 
     runs-on: macos-latest
+    runs-on: macos-latest
 
     steps:
     - name: Checkout Repository 
@@ -41,7 +42,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build/web
-
     - name: Ping Deployed Site
       run: curl -I https://shanu1690.github.io/flutter_projects/
       continue-on-error: true
