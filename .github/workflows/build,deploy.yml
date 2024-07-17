@@ -35,13 +35,17 @@ jobs:
 
     - name: Build web app
       run: flutter build web --release
+
+    - name: Update base href in index.html
+      run: sed -i 's|<base href="/">|<base href="/flutter_projects/">|' ./build/web/index.html
+  
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build/web
-        
+
     - name: Ping Deployed Site
       run: curl -I https://shanu1690.github.io/flutter_projects/
       continue-on-error: true
