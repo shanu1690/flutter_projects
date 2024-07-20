@@ -1,0 +1,30 @@
+{
+    "drawer_items": [
+        {
+            "icon": "home",
+            "label": "Home"
+        },
+        {
+            "icon": "portfolio",
+            "label": "Portfolio"
+        }
+    ],
+    "bottomNavigationItems": [
+        {
+            "icon": "home",
+            "label": "Home"
+        },
+        {
+            "icon": "orders",
+            "label": "Orders"
+        },
+        {
+            "icon": "portfolio",
+            "label": "Portfolio"
+        },
+        {
+            "icon": "funds",
+            "label": "Funds"
+        }
+    ]
+}

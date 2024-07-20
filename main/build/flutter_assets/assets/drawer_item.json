@@ -1,0 +1,30 @@
+{
+    "drawer_items": [
+        {
+            "icon": "home",
+            "label": "Home"
+        },
+        {
+            "icon": "portfolio",
+            "label": "Portfolio"
+        }
+    ],
+    "bottomNavigationItems": [
+        {
+            "icon": "home",
+            "label": "Home"
+        },
+        {
+            "icon": "swap_horiz",
+            "label": "Orders"
+        },
+        {
+            "icon": "pie_chart",
+            "label": "Portfolio"
+        },
+        {
+            "icon": "currency_rupee",
+            "label": "Funds"
+        }
+    ]
+}
