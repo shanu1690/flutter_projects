@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:sample_trading_app/core/utils/item_loader.dart';
 import 'package:sample_trading_app/presentation/reusable_widgets/item_model.dart';
 

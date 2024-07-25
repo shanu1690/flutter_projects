@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 final ThemeData lightTheme = ThemeData(
   primaryColor: Colors.redAccent,
   scaffoldBackgroundColor: Colors.greenAccent,
+  textTheme: TextTheme(
+    bodyMedium: TextStyle(color: Colors.black87)
+  ),
   appBarTheme: const AppBarTheme(
     color: Colors.redAccent,
   ),
@@ -25,6 +28,10 @@ final ThemeData darkTheme = ThemeData(
   ),
    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.black38,
-      selectedItemColor: Colors.white
+      selectedItemColor: Colors.amber,
+      unselectedItemColor: Colors.white30
      ),
+      textTheme: TextTheme(
+    bodyMedium: TextStyle(color: Colors.white60)
+  ),
 );

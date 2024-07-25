@@ -1,29 +1,35 @@
 {
     "drawer_items": [
         {
+            "index" : 0,
             "icon": "home",
             "label": "Home"
         },
         {
+            "index" : 1,
             "icon": "portfolio",
             "label": "Portfolio"
         }
     ],
     "bottomNavigationItems": [
         {
+            "index" : 0,
             "icon": "home",
             "label": "Home"
         },
         {
-            "icon": "swap_horiz",
+            "index" : 1,
+            "icon": "orders",
             "label": "Orders"
         },
         {
-            "icon": "pie_chart",
+            "index" : 2,
+            "icon": "portfolio",
             "label": "Portfolio"
         },
         {
-            "icon": "currency_rupee",
+            "index" : 3,
+            "icon": "funds",
             "label": "Funds"
         }
     ]

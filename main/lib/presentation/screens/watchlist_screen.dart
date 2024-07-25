@@ -6,7 +6,9 @@ class WatchlistScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     
-    return Container();
+    return Container(
+      child: Center(child:Text ("In a Watclist Screen...",style: Theme.of(context).textTheme.bodyMedium)),
+    );
   }
 
 }
